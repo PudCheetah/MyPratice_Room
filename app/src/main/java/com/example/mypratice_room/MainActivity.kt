@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             joinAll(myDataReader.getJob())
             withContext(Dispatchers.IO){
-                myDataReader.insertDataToDatabase(this@MainActivity)
+//                myDataReader.insertDataToDatabase(this@MainActivity)
             }
             binding.TVMain.text = myDataReader.getmyJsonData().toString()
             setContentView(binding.root)

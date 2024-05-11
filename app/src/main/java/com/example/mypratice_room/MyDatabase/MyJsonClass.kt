@@ -3,6 +3,8 @@ package com.example.mypratice_room.MyDatabase
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 
 @Entity
@@ -20,6 +22,7 @@ data class MyJsonClass(
 )
 
 @Entity
+@TypeConverters(MyTypeConvert.ConvertForField::class)
 data class Result(
     @PrimaryKey(autoGenerate = true)
     var ResultID: Int = 0,
@@ -31,6 +34,7 @@ data class Result(
 )
 
 @Entity
+@TypeConverters(MyTypeConvert.ConvertForTsunami::class)
 data class Records(
     @PrimaryKey(autoGenerate = true)
     var RecordsID: Int = 0,
@@ -94,6 +98,7 @@ data class EarthquakeInfo(
 )
 
 @Entity
+@TypeConverters(MyTypeConvert.ConvertForWarningArea::class, MyTypeConvert.ConvertForTsuStation::class)
 data class TsunamiWave(
     @PrimaryKey(autoGenerate = true)
     var TsunamiWaveID: Int = 0,

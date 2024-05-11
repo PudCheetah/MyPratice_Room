@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.devtools.ksp") version "1.9.24-1.0.20"
+//    kotlin("kapt")
 }
 
 android {
@@ -45,6 +46,8 @@ dependencies {
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+//    kapt("androidx.room:room-compiler:$room_version")
 
     //GSON
     implementation ("com.google.code.gson:gson:2.10.1")
